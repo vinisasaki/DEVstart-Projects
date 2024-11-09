@@ -5,11 +5,11 @@ class Pontuacao{
     }
 
     ordenaNotas(){
-        return this.notas.sort((a, b) => a - b);
+        return this.notas.sort((a, b) => a - b); // função callback necessária para o método ordenar de forma numérica
     }
 
     obterMedia(){
-        let notasComputadas = this.ordenaNotas().slice(1,4);
+        let notasComputadas = this.ordenaNotas().slice(1,4); // o "this" antes do método é necessário para poder usar o método ordenaNotas() dentro do método obterMedia()
 
         let soma = notasComputadas.reduce((acumulador, nota) => acumulador + nota, 0);
         
@@ -38,7 +38,7 @@ let atletas = [
     }
    ];
 
-let pontuacoes = atletas.map(atleta => new Pontuacao(atleta.nome, atleta.notas));
+let pontuacoes = atletas.map(atleta => new Pontuacao(atleta.nome, atleta.notas)); 
 
 pontuacoes.forEach(atleta => {
     console.log(`Atleta: ${atleta.nome}`);
